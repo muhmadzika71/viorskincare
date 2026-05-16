@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Fraunces", "Georgia", serif;
+  --font-sans: "Inter", "ui-sans-serif", "system-ui", sans-serif;
+  --font-mono: "DM Mono", "ui-monospace", monospace;
+}
+
+:root {
+  /* Brand palette — Deep Plum / Coral / Clinical Green */
+  --bg:        #F4F4F6;   /* Cool off-white */
+  --bg-soft:   #EBEBEF;
+  --surface:   #FFFFFF;   /* Crisp white surfaces */
+  --ink:       #4A235A;   /* Deep plum — primary */
+  --ink-soft:  #6e4a7e;
+  --coral:     #F06560;   /* Vibrant coral — CTA */
+  --coral-dk:  #D94B47;
+  --green:     #129B49;   /* Clinical green */
+  --green-soft:#D6F0DF;
+  --plum-soft: #E9DEF0;
+  --plum-dark: #34173F;
+
+  /* Legacy tone vars (kept so existing classes resolve) */
+  --blush:     #F06560;
+  --blush-dk:  #F06560;
+  --lavender:  #E9DEF0;
+  --sage:      #D6F0DF;
+  --cream:     #F4F4F6;
+  --rose-bg:   #E9DEF0;
+  --border:    rgba(74,35,90,0.10);
+}
+html, body { background: var(--bg); color: var(--ink); }
+body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+
+.font-display { font-family: 'Fraunces', serif; font-optical-sizing: auto; font-variation-settings: "opsz" 144; letter-spacing: -0.02em; }
+.font-mono    { font-family: 'DM Mono', monospace; }
+
+/* Subtle striped placeholders for imagery */
+.ph-stripes {
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(74,35,90,0.06) 0 1px,
+    transparent 1px 14px
+  );
+}
+.ph-blush { background-color: var(--plum-soft); }
+.ph-lav   { background-color: var(--lavender); }
+.ph-sage  { background-color: var(--green-soft); }
+.ph-cream { background-color: var(--bg-soft); }
+.ph-ink   { background-color: var(--plum-dark); }
+.ph-plum  { background-color: var(--ink); }
+.ph-coral { background-color: var(--coral); }
+
+/* Glass card */
+.glass {
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.65);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.5) inset,
+    0 8px 30px -12px rgba(26,24,23,0.10);
+}
+
+/* Soft floating shadow */
+.float-card {
+  box-shadow:
+    0 1px 1px rgba(26,24,23,0.04),
+    0 8px 24px -10px rgba(26,24,23,0.10);
+}
+
+/* Reveal-on-scroll (Framer Motion–style: y20 → y0, opacity 0 → 1) */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .9s cubic-bezier(.2,.6,.2,1), transform .9s cubic-bezier(.2,.6,.2,1);
+  will-change: transform, opacity;
+}
+.reveal.in { opacity: 1; transform: translateY(0); }
+.reveal.d1 { transition-delay: 80ms; }
+.reveal.d2 { transition-delay: 160ms; }
+.reveal.d3 { transition-delay: 240ms; }
+.reveal.d4 { transition-delay: 320ms; }
+
+/* Hide scrollbar on horizontal product rail */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+
+/* Subtle marquee for the floating logo word */
+@keyframes drift {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.drift { animation: drift 60s linear infinite; }
+
+/* Audio bars */
+.bar {
+  width: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  display: inline-block;
+  opacity: 0.7;
+}
+
+/* Pill button hover lift */
+.btn-pill {
+  transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease, color .25s ease;
+}
+.btn-pill:hover { transform: translateY(-1px); }
+
+/* Hover-reveal Add to Cart */
+.product-card .atc {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity .25s ease, transform .25s ease;
+}
+.product-card:hover .atc { opacity: 1; transform: translateY(0); }
+.product-card { transition: transform .35s ease; }
+.product-card:hover { transform: translateY(-4px); }
+
+/* Tag chip */
+.chip {
+  display: inline-flex; align-items: center; gap: .4rem;
+  padding: .35rem .7rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(6px);
+  font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* Marquee row */
+.marquee-row {
+  display: flex; gap: 3.5rem; white-space: nowrap;
+  font-family: 'Fraunces', serif;
+  font-size: 13vw;
+  line-height: .9;
+  letter-spacing: -.04em;
+  color: rgba(26,24,23,0.06);
+  user-select: none;
+}
+
+/* tiny dot divider */
+.dot { width: 4px; height: 4px; border-radius: 999px; background: currentColor; display: inline-block; opacity: .5; }
+
+/* Star */
+.star { width: 12px; height: 12px; }
+
+/* Smooth focus ring */
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; border-radius: 6px; }
