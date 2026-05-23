@@ -7,7 +7,7 @@ import { Icons as I } from '../ui/Icons';
 
 export function Showcase() {
   const [qty, setQty] = useState(1);
-  const [size, setSize] = useState('30 ml');
+  const [size, setSize] = useState('200 ml');
   return (
     <section id="featured" className="relative w-full mt-32 md:mt-44 overflow-hidden" style={{ background: 'var(--plum-dark)' }}>
       {/* Massive faded backdrop word */}
@@ -30,12 +30,12 @@ export function Showcase() {
               <span className="dot" style={{ background: 'var(--coral)', opacity: 1 }}/> Featured
             </span>
             <h3 className="font-display text-4xl md:text-5xl leading-tight mt-4">
-              Aura Glow <span className="italic" style={{ color: 'var(--coral)' }}>Serum</span>
+              Cleaning <span className="italic" style={{ color: 'var(--coral)' }}>Water</span>
             </h3>
             <p className="text-[14px] text-white/70 leading-relaxed mt-4">
-              A weightless serum blending 2% Niacinamide, cold-pressed
-              Squalane and Centella to even tone and quiet redness — for that
-              lit-from-within finish.
+              A gentle micellar water blending Aloe Vera, Green Tea extract 
+              and Panthenol to effortlessly lift impurities and calm skin — 
+              leaving it refreshed and hydrated.
             </p>
 
             <ul className="mt-6 space-y-2.5 text-[13.5px] text-white/85">
@@ -68,20 +68,9 @@ export function Showcase() {
               {/* radial glow */}
               <div className="absolute inset-0 rounded-full blur-3xl" style={{ background: 'radial-gradient(closest-side, rgba(240,101,96,0.35), transparent 70%)' }}/>
 
-              {/* Stylised bottle (white + plum label) */}
+              {/* Real product image */}
               <div className="relative">
-                <div className="w-48 h-80 md:w-60 md:h-[24rem] rounded-[20px] flex flex-col items-center justify-between py-8 shadow-2xl"
-                     style={{ background: '#ffffff', boxShadow: '0 30px 80px -20px rgba(0,0,0,0.5)' }}>
-                  <div className="w-12 h-7 rounded-md" style={{ background: 'var(--plum-dark)' }}/>
-                  <div className="text-center px-4 w-[80%] rounded-md py-5" style={{ background: 'var(--ink)', color: '#fff' }}>
-                    <div className="font-mono text-[8px] tracking-[0.3em] uppercase opacity-70">No. 02</div>
-                    <div className="font-display text-2xl tracking-tight mt-1">Vior Skincare</div>
-                    <div className="font-mono text-[9px] tracking-[0.24em] uppercase opacity-75 mt-1">Aura Glow Serum</div>
-                    <div className="mt-3 h-px w-10 bg-white/30 mx-auto"/>
-                    <div className="font-mono text-[9px] tracking-[0.24em] uppercase opacity-75 mt-3">30 ml</div>
-                  </div>
-                  <div className="font-mono text-[8px] tracking-[0.3em] uppercase" style={{ color: 'var(--ink)' }}>Small batch</div>
-                </div>
+                <img src="/products/cleaning-water-2.webp" alt="Cleaning Water" className="w-48 md:w-60 object-contain drop-shadow-2xl z-10 relative" />
                 {/* shadow */}
                 <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-44 h-3 rounded-full bg-black/40 blur-md"/>
               </div>
@@ -89,11 +78,11 @@ export function Showcase() {
               {/* floating chip annotations */}
               <div className="absolute top-6 left-2 md:left-6 rounded-2xl px-3 py-2 text-[11px]" style={{ background: '#fff', color: 'var(--ink)' }}>
                 <div className="font-mono tracking-[0.16em] uppercase text-[color:var(--ink-soft)] text-[9px]">Active</div>
-                <div className="font-display">Niacinamide 2%</div>
+                <div className="font-display">Micellar</div>
               </div>
               <div className="absolute bottom-12 right-2 md:right-6 rounded-2xl px-3 py-2 text-[11px]" style={{ background: 'var(--coral)', color: '#fff' }}>
                 <div className="font-mono tracking-[0.16em] uppercase opacity-80 text-[9px]">Botanical</div>
-                <div className="font-display">Damask Rose</div>
+                <div className="font-display">Aloe Vera</div>
               </div>
               {/* green badge */}
               <div className="absolute top-10 right-4 md:right-8 w-16 h-16 rounded-full flex flex-col items-center justify-center text-white font-display" style={{ background: 'var(--green)' }}>
@@ -109,14 +98,14 @@ export function Showcase() {
           <Reveal delay={2} className="md:text-right">
             <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-white/55">From</div>
             <div className="font-display text-5xl md:text-6xl mt-1 flex md:justify-end items-baseline gap-1">
-              <span>$48</span>
+              <span>$32</span>
               <span className="text-base font-mono tracking-[0.18em] uppercase" style={{ color: 'var(--coral)' }}>/usd</span>
             </div>
 
             <div className="mt-6">
               <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-white/55 mb-2">Size</div>
               <div className="inline-flex flex-wrap gap-2 md:justify-end">
-                {['15 ml', '30 ml', '50 ml'].map(s => (
+                {['100 ml', '200 ml', '400 ml'].map(s => (
                   <button key={s} onClick={() => setSize(s)}
                     className="px-3 py-1.5 rounded-full text-[12px] border transition"
                     style={size === s
@@ -138,7 +127,7 @@ export function Showcase() {
             </div>
 
             <div className="mt-8 flex md:flex-col md:items-end gap-3">
-              <Link href="/order?product=Aura+Glow+Serum" className="btn-pill text-white rounded-full px-6 py-3 text-sm inline-flex items-center gap-2" style={{ background: 'var(--coral)' }}>
+              <Link href="/order?product=Cleaning+Water" className="btn-pill text-white rounded-full px-6 py-3 text-sm inline-flex items-center gap-2" style={{ background: 'var(--coral)' }}>
                 <I.tag className="w-4 h-4"/> Order Inquiry
               </Link>
               <Link href="/order" className="btn-pill rounded-full px-6 py-3 text-sm inline-flex items-center gap-2 text-white border" style={{ borderColor: 'rgba(255,255,255,0.3)' }}>

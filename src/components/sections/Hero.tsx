@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Reveal } from '../ui/Reveal';
 import { Placeholder } from '../ui/Placeholder';
 import { Icons as I } from '../ui/Icons';
@@ -81,32 +82,28 @@ export function Hero() {
           {/* Right hero image — full-bleed to edges */}
           <div className="col-span-12 md:col-span-6 relative min-h-[480px] md:min-h-[88vh]">
             <Reveal className="absolute inset-0">
-              <Placeholder
-                tone="plum"
-                label="Hero photograph"
-                sub="woman applying serum, soft morning light"
-                className="w-full h-full"
-              >
+              <div className="w-full h-full relative overflow-hidden">
+                <Image src="/products/hero-image.webp" alt="Hero photograph" fill className="object-cover" priority sizes="50vw" />
                 <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-black/10 pointer-events-none"/>
 
                 {/* floating tag pill */}
                 <div className="absolute top-6 left-6 chip" style={{ background: 'rgba(255,255,255,0.92)', color: 'var(--ink)', borderColor: 'transparent' }}>
-                  <span className="dot" style={{ background: 'var(--coral)', opacity: 1 }}/> Bestseller · Aura Serum
+                  <span className="dot" style={{ background: 'var(--coral)', opacity: 1 }}/> Bestseller · Cleaning Water
                 </div>
 
                 {/* floating glass card */}
                 <div className="absolute bottom-6 right-6 rounded-2xl p-4 w-[240px]" style={{ background: '#fff', boxShadow: '0 18px 40px -16px rgba(74,35,90,0.45)' }}>
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: 'var(--plum-soft)', color: 'var(--ink)' }}>
-                      <I.sparkle className="w-4 h-4"/>
+                    <div className="w-10 h-10 rounded-full overflow-hidden relative flex-shrink-0" style={{ background: 'var(--surface)' }}>
+                      <Image src="/products/cleaning-water-2.webp" alt="Cleaning Water" fill className="object-contain p-1" sizes="40px" />
                     </div>
                     <div>
-                      <div className="text-[13px] font-medium leading-tight" style={{ color: 'var(--ink)' }}>Aura Glow Serum</div>
-                      <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-[color:var(--ink-soft)]">2% Niacinamide · 30 ml</div>
+                      <div className="text-[13px] font-medium leading-tight" style={{ color: 'var(--ink)' }}>Cleaning Water</div>
+                      <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-[color:var(--ink-soft)]">Micellar · 200 ml</div>
                     </div>
                   </div>
                   <div className="mt-3 flex items-center justify-between">
-                    <div className="font-display text-lg" style={{ color: 'var(--ink)' }}>$48</div>
+                    <div className="font-display text-lg" style={{ color: 'var(--ink)' }}>$32</div>
                     <Link href="/order" className="btn-pill text-xs text-white rounded-full px-3 py-1.5" style={{ background: 'var(--coral)' }}>Order</Link>
                   </div>
                 </div>
@@ -116,7 +113,7 @@ export function Hero() {
                   <div className="font-display text-lg leading-none">SPF</div>
                   <div className="font-display text-xl leading-none">40</div>
                 </div>
-              </Placeholder>
+              </div>
             </Reveal>
           </div>
         </div>

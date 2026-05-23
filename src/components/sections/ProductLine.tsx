@@ -2,46 +2,58 @@
 
 import React, { useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Reveal } from '../ui/Reveal';
 import { Placeholder } from '../ui/Placeholder';
 import { Icons as I } from '../ui/Icons';
 
 const PRODUCTS = [
-  { name: 'Aura Glow Serum',   note: 'Niacinamide · Squalane',  size: '30 ml', price: 48, tone: 'blush', tag: 'Bestseller' },
-  { name: 'Velvet Cloud Cream',note: 'Ceramide · Oat',          size: '50 ml', price: 62, tone: 'cream', tag: 'New' },
-  { name: 'Petal Toning Mist', note: 'Damask Rose · PHA',       size: '100 ml',price: 34, tone: 'lav',   tag: '' },
-  { name: 'Quiet Cleansing Balm', note: 'Camellia · Jojoba',    size: '80 ml', price: 38, tone: 'sage',  tag: '' },
-  { name: 'Lumière Eye Oil',   note: 'Bakuchiol · Sea Fennel',  size: '15 ml', price: 56, tone: 'blush', tag: 'Limited' },
-  { name: 'Soft Sun Veil SPF40', note: 'Mineral · Hyaluronic',  size: '50 ml', price: 44, tone: 'cream', tag: '' },
+  { 
+    name: 'Hyaluronic Micellar H20 Ultra', 
+    note: 'Antiox-Hydrate™ · All Skin Types', 
+    size: '200 ml', price: 36, 
+    bg: '#ffffff', 
+    imageClass: '',
+    tag: 'Ultra', image: '/products/micellar-water.png' 
+  },
 ];
 
-function ProductCard({ name, note, size, price, tone, tag }: any) {
+function ProductCard({ name, note, size, price, bg, imageClass, tag, image }: any) {
   return (
-    <article className="relative w-[270px] md:w-[300px] rounded-[28px] overflow-hidden bg-white float-card">
-      <Placeholder
-        tone={tone}
-        label="Product"
-        sub={name}
-        className="aspect-[4/5]"
+    <article className="relative w-[270px] md:w-[300px] rounded-[28px] overflow-hidden bg-white float-card group">
+      <div 
+        className="aspect-[4/5] relative overflow-hidden"
+        style={{ background: bg }}
       >
+        {/* Soft highlight overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent pointer-events-none mix-blend-overlay" />
+        
         {tag && (
-          <div className="absolute top-3 left-3 chip bg-white/85 text-[color:var(--ink)]">
-            <span className="dot"/> {tag}
+          <div className="absolute top-4 left-4 z-10 px-3 py-1 bg-white/80 backdrop-blur-md rounded-full text-[9px] font-mono tracking-[0.16em] uppercase shadow-sm" style={{ color: 'var(--ink)' }}>
+            <span className="opacity-50 mr-1.5">•</span>{tag}
           </div>
         )}
-        {/* faux bottle silhouette */}
-        <div className="absolute inset-0 flex items-end justify-center pb-10 pointer-events-none">
-          <div className="w-20 h-44 bg-white/55 rounded-[14px] border border-white/70 backdrop-blur-sm shadow-md flex items-center justify-center">
-            <div className="font-display text-[11px] tracking-[0.18em] uppercase text-[color:var(--ink-soft)] rotate-[-90deg]">Vior</div>
-          </div>
+        
+        {/* Actual Image */}
+        <div className="absolute inset-0 flex items-center justify-center p-6 z-0 perspective-[1000px]">
+          {image ? (
+            <div className={`relative w-full h-full overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:scale-110 group-hover:rotate-0 group-hover:-translate-y-2 ${imageClass}`}>
+              <Image src={image} alt={name} fill className="object-contain drop-shadow-2xl" sizes="(max-width: 768px) 270px, 300px" />
+            </div>
+          ) : (
+            <div className="w-20 h-44 bg-white/55 rounded-[14px] border border-white/70 backdrop-blur-sm shadow-md flex items-center justify-center mt-8">
+              <div className="font-display text-[11px] tracking-[0.18em] uppercase text-[color:var(--ink-soft)] rotate-[-90deg]">Vior</div>
+            </div>
+          )}
         </div>
+
         {/* hover ATC */}
-        <div className="atc absolute inset-x-3 bottom-3">
+        <div className="atc absolute inset-x-3 bottom-3 z-10">
           <Link href={`/order?product=${encodeURIComponent(name)}`} className="w-full btn-pill bg-[color:var(--ink)] text-white rounded-full py-3 text-sm inline-flex items-center justify-center gap-2">
             <I.tag className="w-4 h-4"/> Order Inquiry
           </Link>
         </div>
-      </Placeholder>
+      </div>
 
       <div className="p-5">
         <div className="flex items-start justify-between gap-3">
@@ -90,7 +102,7 @@ export function ProductLine() {
           style={{ scrollSnapType: 'x mandatory' }}
         >
           <ul className="flex gap-5 min-w-max">
-            {PRODUCTS.map((p, i) => (
+            {PRODUCTS.map((p) => (
               <li key={p.name} className="product-card" style={{ scrollSnapAlign: 'start' }}>
                 <ProductCard {...p} />
               </li>
