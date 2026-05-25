@@ -1,7 +1,30 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Link from "next/link";
 
 export function Footer() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "error" | "success">("idle");
+  const [message, setMessage] = useState("");
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+      setStatus("error");
+      setMessage("Please enter a valid email address.");
+      return;
+    }
+
+    setStatus("success");
+    setMessage("Thank you! You've successfully subscribed.");
+    setEmail("");
+    
+    setTimeout(() => {
+      setStatus("idle");
+      setMessage("");
+    }, 5000);
+  };
+
   return (
     <footer className="bg-[#f0e3db] text-ink py-16 px-8 mt-24">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
@@ -45,10 +68,28 @@ export function Footer() {
           <div>
             <h4 className="font-bold mb-4 text-sm tracking-wider uppercase">Newsletter</h4>
             <p className="text-sm text-ink-soft mb-4">Get 10% off your first order and exclusive access to new launches.</p>
-            <div className="flex">
-              <input type="email" placeholder="Email Address" className="w-full bg-transparent border-b border-ink py-2 text-sm focus:outline-none placeholder-ink/50" />
-              <button className="border-b border-ink font-bold text-sm hover:text-coral transition-colors ml-2">Sign Up</button>
-            </div>
+            <form onSubmit={handleSubscribe} className="relative">
+              <div className="flex items-end">
+                <input 
+                  type="email" 
+                  placeholder="Email Address" 
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    if (status === "error") setStatus("idle");
+                  }}
+                  className="w-full bg-transparent border-b border-ink py-2 text-sm focus:outline-none placeholder-ink/50" 
+                />
+                <button type="submit" className="border-b border-ink font-bold text-sm hover:text-coral transition-colors ml-4 py-2 whitespace-nowrap">
+                  Sign Up
+                </button>
+              </div>
+              {status !== "idle" && (
+                <div className={`absolute top-full left-0 mt-2 text-xs ${status === "success" ? "text-green-600 font-medium" : "text-red-500"}`}>
+                  {message}
+                </div>
+              )}
+            </form>
           </div>
         </div>
       </div>
