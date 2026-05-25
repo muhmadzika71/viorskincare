@@ -1,134 +1,110 @@
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { Reveal } from '../ui/Reveal';
-import { Placeholder } from '../ui/Placeholder';
-import { Icons as I } from '../ui/Icons';
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 export function Hero() {
   return (
-    <section className="relative w-full mt-5">
-      {/* Full-bleed plum hero panel */}
-      <div className="relative w-full overflow-hidden" style={{ background: 'var(--ink)' }}>
-        {/* Coral diagonal accent band */}
-        <div className="absolute top-10 -right-20 w-[520px] h-[110px] rotate-[-8deg] pointer-events-none" style={{ background: 'var(--coral)' }}>
-          <div className="h-full flex items-center justify-center gap-12 font-mono text-[11px] tracking-[0.3em] uppercase text-white">
-            <span>· New In</span><span>· Free Refills</span><span>· €60+ Ship Free</span><span>· New In</span>
-          </div>
+    <section className="relative min-h-screen pt-32 pb-20 px-8 flex flex-col lg:flex-row items-center max-w-7xl mx-auto gap-12">
+      {/* Left Content */}
+      <div className="w-full lg:w-1/2 flex flex-col items-start z-10">
+        <div className="inline-flex items-center gap-2 bg-pink-100 text-coral text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-6">
+          Clean. Effective. Radiant.
+        </div>
+        
+        <h1 className="font-display text-6xl lg:text-7xl font-bold leading-tight text-ink mb-6">
+          Healthy Skin<br/>Starts Here.
+        </h1>
+        
+        <p className="text-lg text-ink-soft mb-8 max-w-md">
+          Science-backed skincare solutions designed to reveal your natural glow and boost your confidence.
+        </p>
+        
+        <div className="flex flex-wrap gap-4 mb-10">
+          <Link href="/shop" className="btn-primary">
+            Shop Bestsellers
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </Link>
+          <Link href="/quiz" className="btn-secondary">
+            Take Skin Quiz
+          </Link>
         </div>
 
-        {/* Faded display word */}
-        <div className="absolute inset-x-0 top-[14%] flex justify-center pointer-events-none select-none">
-          <div className="font-display leading-none tracking-tighter" style={{ fontSize: '28vw', color: 'rgba(255,255,255,0.05)' }}>vior</div>
-        </div>
-
-        <div className="relative grid grid-cols-12 gap-0 min-h-[88vh]">
-          {/* Left content */}
-          <div className="col-span-12 md:col-span-6 flex flex-col justify-between px-6 md:px-12 lg:px-16 py-14 md:py-20 text-white">
-            <div>
-              <Reveal>
-                <span className="chip" style={{ background: 'rgba(255,255,255,0.12)', borderColor: 'rgba(255,255,255,0.2)', color: 'rgba(255,255,255,0.85)' }}>
-                  <span className="dot" style={{ background: 'var(--coral)', opacity: 1 }}/>
-                  Autumn Edit ’26 · Bestseller
-                </span>
-              </Reveal>
-
-              <Reveal delay={1} className="mt-10">
-                <h1 className="font-display text-[16vw] md:text-[8.5vw] leading-[0.92] tracking-tight">
-                  Enhance<br/>
-                  <span className="italic font-light opacity-90">your</span> <span style={{ color: 'var(--coral)' }}>Beauty.</span>
-                </h1>
-              </Reveal>
-
-              <Reveal delay={2} className="mt-8 max-w-md text-[15px] leading-relaxed text-white/75">
-                A quiet ritual of botanically-rich serums, balms and waters —
-                formulated in small batches to leave skin luminous, calm and
-                unmistakably yours.
-              </Reveal>
-
-              <Reveal delay={3} className="mt-10 flex flex-wrap items-center gap-4">
-                <Link href="/order" className="btn-pill text-white pl-6 pr-2 py-2 rounded-full inline-flex items-center gap-3" style={{ background: 'var(--coral)' }}>
-                  <span className="text-sm font-medium">Order Inquiries</span>
-                  <span className="bg-white/20 rounded-full p-2"><I.arrow className="w-4 h-4"/></span>
-                </Link>
-                <Link href="/#ritual" className="text-sm text-white/85 inline-flex items-center gap-3">
-                  <span className="w-9 h-9 rounded-full border border-white/30 inline-flex items-center justify-center">
-                    <I.play className="w-3 h-3 translate-x-[1px]"/>
-                  </span>
-                  Watch the ritual · 2:14
-                </Link>
-              </Reveal>
+        <div className="flex items-center gap-4">
+          <div className="flex -space-x-3">
+            <div className="w-10 h-10 rounded-full border-2 border-white bg-gray-200 overflow-hidden">
+               <img src="https://i.pravatar.cc/100?img=1" alt="Customer" className="w-full h-full object-cover"/>
             </div>
-
-            {/* Tiny stats row */}
-            <Reveal delay={4} className="mt-14 grid grid-cols-3 gap-6 max-w-md">
-              <div>
-                <div className="font-display text-3xl">12k+</div>
-                <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-white/55 mt-1">5★ Reviews</div>
-              </div>
-              <div>
-                <div className="font-display text-3xl">98<span style={{ color: 'var(--coral)' }}>%</span></div>
-                <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-white/55 mt-1">Natural Origin</div>
-              </div>
-              <div>
-                <div className="font-display text-3xl flex items-baseline gap-1">0
-                  <span className="font-mono text-[10px] tracking-[0.18em] uppercase" style={{ color: 'var(--green)' }}>cruelty</span>
-                </div>
-                <div className="font-mono text-[10px] tracking-[0.18em] uppercase text-white/55 mt-1">Vegan Certified</div>
-              </div>
-            </Reveal>
+            <div className="w-10 h-10 rounded-full border-2 border-white bg-gray-200 overflow-hidden">
+               <img src="https://i.pravatar.cc/100?img=2" alt="Customer" className="w-full h-full object-cover"/>
+            </div>
+            <div className="w-10 h-10 rounded-full border-2 border-white bg-gray-200 overflow-hidden">
+               <img src="https://i.pravatar.cc/100?img=3" alt="Customer" className="w-full h-full object-cover"/>
+            </div>
+            <div className="w-10 h-10 rounded-full border-2 border-white bg-gray-200 overflow-hidden">
+               <img src="https://i.pravatar.cc/100?img=4" alt="Customer" className="w-full h-full object-cover"/>
+            </div>
           </div>
-
-          {/* Right hero image — full-bleed to edges */}
-          <div className="col-span-12 md:col-span-6 relative min-h-[480px] md:min-h-[88vh]">
-            <Reveal className="absolute inset-0">
-              <div className="w-full h-full relative overflow-hidden">
-                <Image src="/products/hero-image.webp" alt="Hero photograph" fill className="object-cover" priority sizes="50vw" />
-                <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-black/10 pointer-events-none"/>
-
-                {/* floating tag pill */}
-                <div className="absolute top-6 left-6 chip" style={{ background: 'rgba(255,255,255,0.92)', color: 'var(--ink)', borderColor: 'transparent' }}>
-                  <span className="dot" style={{ background: 'var(--coral)', opacity: 1 }}/> Bestseller · Cleaning Water
-                </div>
-
-                {/* floating glass card */}
-                <div className="absolute bottom-6 right-6 rounded-2xl p-4 w-[240px]" style={{ background: '#fff', boxShadow: '0 18px 40px -16px rgba(74,35,90,0.45)' }}>
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full overflow-hidden relative flex-shrink-0" style={{ background: 'var(--surface)' }}>
-                      <Image src="/products/cleaning-water-2.webp" alt="Cleaning Water" fill className="object-contain p-1" sizes="40px" />
-                    </div>
-                    <div>
-                      <div className="text-[13px] font-medium leading-tight" style={{ color: 'var(--ink)' }}>Cleaning Water</div>
-                      <div className="font-mono text-[10px] tracking-[0.14em] uppercase text-[color:var(--ink-soft)]">Micellar · 200 ml</div>
-                    </div>
-                  </div>
-                  <div className="mt-3 flex items-center justify-between">
-                    <div className="font-display text-lg" style={{ color: 'var(--ink)' }}>$32</div>
-                    <Link href="/order" className="btn-pill text-xs text-white rounded-full px-3 py-1.5" style={{ background: 'var(--coral)' }}>Order</Link>
-                  </div>
-                </div>
-
-                {/* corner ornament — SPF-style badge in clinical green */}
-                <div className="absolute top-6 right-6 rounded-full w-14 h-14 flex flex-col items-center justify-center text-white" style={{ background: 'var(--green)' }}>
-                  <div className="font-display text-lg leading-none">SPF</div>
-                  <div className="font-display text-xl leading-none">40</div>
-                </div>
+          <div>
+            <div className="text-sm font-semibold text-ink">Trusted by 25K+ customers</div>
+            <div className="flex items-center gap-1 text-xs text-ink-soft mt-0.5">
+              <div className="flex text-coral">
+                {'★★★★★'.split('').map((star, i) => <span key={i}>{star}</span>)}
               </div>
-            </Reveal>
+              <span className="font-bold ml-1">4.9/5</span>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Press strip — full bleed */}
-      <Reveal className="w-full px-6 md:px-12 lg:px-16 py-6 flex flex-wrap items-center justify-between gap-y-4 gap-x-10" style={{ background: 'var(--surface)' }}>
-        <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[color:var(--ink-soft)]">As Featured In</span>
-        <span className="font-display text-xl" style={{ color: 'var(--ink)' }}>Vogue</span>
-        <span className="font-display italic text-xl" style={{ color: 'var(--ink)' }}>Cereal</span>
-        <span className="font-display text-xl tracking-widest" style={{ color: 'var(--ink)' }}>ELLE</span>
-        <span className="font-display text-xl" style={{ color: 'var(--ink)' }}>Kinfolk</span>
-        <span className="font-display text-xl" style={{ color: 'var(--ink)' }}>The Cut</span>
-        <span className="font-display text-xl" style={{ color: 'var(--ink)' }}>Goop</span>
-      </Reveal>
+      {/* Right Image area */}
+      <div className="w-full lg:w-1/2 relative min-h-[600px] flex justify-center items-center">
+        {/* Main Model Image */}
+        <div className="relative w-[450px] h-[600px] rounded-t-full overflow-hidden shadow-2xl">
+          <Image 
+            src="/vior_hero_model.png"
+            alt="Glowing Skin Model"
+            fill
+            className="object-cover"
+          />
+        </div>
+
+        {/* Floating Results Card */}
+        <div className="absolute top-1/3 -right-4 lg:-right-12 glass p-6 rounded-2xl w-64 shadow-xl z-20 bg-white/80 border border-white/50 backdrop-blur-md">
+          <h3 className="font-display font-semibold text-lg mb-4 text-ink">Clinically Proven<br/>Results</h3>
+          <div className="space-y-3 text-sm">
+            <div className="flex justify-between items-center border-b border-gray-100 pb-2">
+              <span className="text-ink-soft">Hydration</span>
+              <span className="font-bold text-ink">+92%</span>
+            </div>
+            <div className="flex justify-between items-center border-b border-gray-100 pb-2">
+              <span className="text-ink-soft">Smoothness</span>
+              <span className="font-bold text-ink">+88%</span>
+            </div>
+            <div className="flex justify-between items-center border-b border-gray-100 pb-2">
+              <span className="text-ink-soft">Radiance</span>
+              <span className="font-bold text-ink">+85%</span>
+            </div>
+            <div className="flex justify-between items-center pb-2">
+              <span className="text-ink-soft">Even Tone</span>
+              <span className="font-bold text-ink">+80%</span>
+            </div>
+          </div>
+          <p className="text-[10px] text-ink-soft italic mt-2">* Based on 4 weeks of use.</p>
+        </div>
+
+        {/* Products overlay */}
+        <div className="absolute -bottom-10 left-10 flex gap-4 z-30">
+          <div className="w-24 h-40 relative rounded-xl overflow-hidden shadow-lg border border-white">
+            <Image src="/vior_micellar_water.png" alt="Micellar Water" fill className="object-cover" />
+          </div>
+          <div className="w-20 h-32 relative rounded-xl overflow-hidden shadow-lg border border-white mt-8">
+            <Image src="/vior_toner.png" alt="Toner" fill className="object-cover" />
+          </div>
+          <div className="w-20 h-32 relative rounded-xl overflow-hidden shadow-lg border border-white">
+            <Image src="/vior_cica_cream.png" alt="Cica Cream" fill className="object-cover" />
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

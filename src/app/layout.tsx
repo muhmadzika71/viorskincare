@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Fraunces, DM_Mono } from "next/font/google";
+import { Inter, Playfair_Display, DM_Mono } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -7,8 +7,8 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+const playfair = Playfair_Display({
+  variable: "--font-serif",
   subsets: ["latin"],
 });
 
@@ -19,8 +19,8 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vior Skincare — Enhance Your Beauty",
-  description: "A quiet ritual of botanically-rich serums, balms and waters — formulated in small batches to leave skin luminous, calm and unmistakably yours.",
+  title: "Vior Skincare — Crafted To Glow",
+  description: "Clean, effective, radiant skincare.",
   metadataBase: new URL("https://viorskincare.com/"),
 };
 
@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${fraunces.variable} ${dmMono.variable} antialiased`}
+        className={`${inter.variable} ${playfair.variable} ${dmMono.variable} antialiased`}
       >
         {children}
       </body>

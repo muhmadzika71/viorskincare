@@ -1,58 +1,63 @@
-import React from 'react';
-import Link from 'next/link';
+import React from "react";
+import Link from "next/link";
 
 export function Footer() {
-  const cols = [
-    { title: 'Shop',     items: [{l:'Serums',h:'/shop/serums'}, {l:'Moisturisers',h:'/shop/moisturisers'}, {l:'Cleansers',h:'/shop/cleansers'}, {l:'SPF',h:'/shop/spf'}, {l:'Gift Sets',h:'/shop/gift-sets'}, {l:'Refills',h:'/shop/refills'}] },
-    { title: 'Care',     items: [{l:'Skin Quiz',h:'/care/skin-quiz'}, {l:'Ritual Guide',h:'/care/ritual-guide'}, {l:'Ingredient Index',h:'/care/ingredient-index'}, {l:'Journal',h:'/journal'}] },
-    { title: 'Studio',   items: [{l:'Our Story',h:'/studio/our-story'}, {l:'Sustainability',h:'/studio/sustainability'}, {l:'Stockists',h:'/studio/stockists'}, {l:'Press',h:'/studio/press'}, {l:'Careers',h:'/studio/careers'}] },
-    { title: 'Support',  items: [{l:'Contact',h:'/support/contact'}, {l:'Shipping',h:'/support/shipping'}, {l:'Returns',h:'/support/returns'}, {l:'FAQ',h:'/support/faq'}] },
-  ];
   return (
-    <footer className="mt-32 md:mt-44 pt-16 border-t border-[color:var(--border)] relative overflow-hidden">
-      <div className="px-6 md:px-10">
-        <div className="grid grid-cols-12 gap-8 pb-12">
-          {/* Logo / Newsletter */}
-          <div className="col-span-12 md:col-span-5 lg:col-span-4 pr-4">
-            <a href="#" className="font-display text-3xl tracking-tight flex items-center gap-2">
-              <span className="inline-block w-3 h-3 rotate-45" style={{ background: 'var(--coral)' }}/>
-              Vior Skincare
-            </a>
-            <p className="mt-4 text-[14px] text-[color:var(--ink-soft)] leading-relaxed max-w-sm">
-              Botanically-rich skincare for the quiet rituals of your day. Formulated to leave skin luminous and unmistakably yours.
-            </p>
-            <div className="mt-8">
-              <div className="font-mono text-[10px] tracking-[0.16em] uppercase text-[color:var(--ink-soft)] mb-3">Join our letters</div>
-              <div className="flex bg-[color:var(--bg-soft)] rounded-full overflow-hidden max-w-sm focus-within:ring-2 focus-within:ring-[color:var(--ink)] transition-shadow">
-                <input type="email" placeholder="Email address" className="bg-transparent flex-1 px-5 py-3 text-sm outline-none w-full" />
-                <button className="px-5 text-sm font-medium hover:bg-[color:var(--ink)] hover:text-white transition-colors">Submit</button>
-              </div>
+    <footer className="bg-[#f0e3db] text-ink py-16 px-8 mt-24">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+        <div className="w-full md:w-1/3">
+          <Link href="/">
+            <span className="text-4xl font-display text-coral font-bold tracking-wider uppercase mb-6 block">VIOR</span>
+          </Link>
+          <p className="text-sm text-ink-soft max-w-xs">
+            Crafted To Glow. Clean, effective, and sustainable skincare.
+          </p>
+        </div>
+        
+        <div className="w-full md:w-2/3 grid grid-cols-2 sm:grid-cols-4 gap-8">
+          <div>
+            <h4 className="font-bold mb-4 text-sm tracking-wider uppercase">Shop</h4>
+            <ul className="space-y-2 text-sm text-ink-soft">
+              <li><Link href="/shop" className="hover:text-ink">All Products</Link></li>
+              <li><Link href="/shop#bestsellers" className="hover:text-ink">Best Sellers</Link></li>
+              <li><Link href="/shop#new" className="hover:text-ink">New Serums</Link></li>
+              <li><Link href="/quiz" className="hover:text-ink">Skincare Quiz</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-bold mb-4 text-sm tracking-wider uppercase">Company</h4>
+            <ul className="space-y-2 text-sm text-ink-soft">
+              <li><Link href="/story" className="hover:text-ink">Our Story</Link></li>
+              <li><Link href="/ingredients" className="hover:text-ink">Ingredients</Link></li>
+              <li><Link href="/sustainability" className="hover:text-ink">Sustainability</Link></li>
+              <li><Link href="/careers" className="hover:text-ink">Careers</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-bold mb-4 text-sm tracking-wider uppercase">Help</h4>
+            <ul className="space-y-2 text-sm text-ink-soft">
+              <li><Link href="/faq" className="hover:text-ink">FAQ</Link></li>
+              <li><Link href="/shipping" className="hover:text-ink">Shipping</Link></li>
+              <li><Link href="/returns" className="hover:text-ink">Returns</Link></li>
+              <li><Link href="/contact" className="hover:text-ink">Contact Us</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-bold mb-4 text-sm tracking-wider uppercase">Newsletter</h4>
+            <p className="text-sm text-ink-soft mb-4">Get 10% off your first order and exclusive access to new launches.</p>
+            <div className="flex">
+              <input type="email" placeholder="Email Address" className="w-full bg-transparent border-b border-ink py-2 text-sm focus:outline-none placeholder-ink/50" />
+              <button className="border-b border-ink font-bold text-sm hover:text-coral transition-colors ml-2">Sign Up</button>
             </div>
           </div>
-          
-          <div className="col-span-12 md:col-span-1 lg:col-span-2 hidden lg:block"/>
-
-          {/* Links */}
-          <div className="col-span-12 md:col-span-7 lg:col-span-6 grid grid-cols-2 md:grid-cols-4 gap-8">
-            {cols.map(c => (
-              <div key={c.title}>
-                <h4 className="font-mono text-[10px] tracking-[0.16em] uppercase text-[color:var(--ink-soft)] mb-5">{c.title}</h4>
-                <ul className="space-y-3 text-[14px]">
-                  {c.items.map(i => (
-                    <li key={i.l}><Link href={i.h} className="hover:text-[color:var(--coral)] transition-colors">{i.l}</Link></li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
         </div>
-
-        <div className="py-6 border-t border-[color:var(--border)] flex flex-col md:flex-row items-center justify-between gap-4 text-[13px] text-[color:var(--ink-soft)]">
-          <div>© {new Date().getFullYear()} Vior Skincare. All rights reserved.</div>
-          <div className="flex items-center gap-6">
-            <Link href="/privacy" className="hover:text-[color:var(--ink)]">Privacy</Link>
-            <Link href="/terms" className="hover:text-[color:var(--ink)]">Terms</Link>
-          </div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-ink/20 flex flex-col md:flex-row justify-between items-center text-xs text-ink-soft">
+        <p>© 2026 VIOR Skincare. All rights reserved.</p>
+        <div className="flex gap-4 mt-4 md:mt-0">
+          <Link href="/privacy" className="hover:text-ink">Privacy Policy</Link>
+          <Link href="/terms" className="hover:text-ink">Terms of Service</Link>
         </div>
       </div>
     </footer>
