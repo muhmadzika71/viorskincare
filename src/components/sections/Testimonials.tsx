@@ -6,34 +6,60 @@ import { Placeholder } from '../ui/Placeholder';
 import { Icons as I } from '../ui/Icons';
 
 const REVIEWS = [
-  { name: 'Amélie R.',  city: 'Paris',   rating: 5, text: 'I bought the VioR Cica Cream on a whim. Six weeks later three friends have asked what I’ve done differently. It’s this — just this.', dur: '0:42', tone: 'blush' },
-  { name: 'Yui T.',     city: 'Kyoto',   rating: 5, text: 'The VioR Rich Moisture Cream feels like cashmere on the face. My skin barrier hasn’t felt this calm in years.', dur: '1:08', tone: 'lav' },
-  { name: 'Noor K.',    city: 'Dubai',   rating: 5, text: 'Beautiful packaging, but more importantly — it actually works. Texture has refined, redness gone.', dur: '0:55', tone: 'cream' },
-  { name: 'Sofía M.',   city: 'Madrid',  rating: 5, text: 'I love that everything is refillable. Same routine, a fraction of the waste.', dur: '0:33', tone: 'sage' },
+  { 
+    name: 'Amélie R.',  city: 'Paris',   rating: 5, 
+    text: 'I bought the VioR Cica Cream on a whim. Six weeks later three friends have asked what I’ve done differently. It’s this — just this.', 
+    dur: '0:08', tone: 'blush',
+    audioUrl: '/I bought the VioR Cica Cream on a whim. Six weeks later three friends have asked what I’ve done differently. It’s this — just this..mp3'
+  },
+  { 
+    name: 'Yui T.',     city: 'Kyoto',   rating: 5, 
+    text: 'The VioR Rich Moisture Cream feels like cashmere on the face. My skin barrier hasn’t felt this calm in years.', 
+    dur: '0:07', tone: 'lav',
+    audioUrl: '/The VioR Rich Moisture Cream feels like cashmere on the face. My skin barrier hasn’t felt this calm in years.mp3'
+  },
+  { 
+    name: 'Noor K.',    city: 'Dubai',   rating: 5, 
+    text: 'Beautiful packaging, but more importantly — it actually works. Texture has refined, redness gone.', 
+    dur: '0:06', tone: 'cream',
+    audioUrl: '/Beautiful packaging, but more importantly — it actually works. Texture has refined, redness gone..mp3'
+  },
+  { 
+    name: 'Sofía M.',   city: 'Madrid',  rating: 5, 
+    text: 'I love that everything is refillable. Same routine, a fraction of the waste.', 
+    dur: '0:05', tone: 'sage',
+    audioUrl: '/I love that everything is refillable. Same routine, a fraction of the waste.mp3'
+  },
 ];
 
-function ReviewCard({ name, city, rating, text, dur, tone, active }: any) {
+function ReviewCard({ name, city, rating, text, dur, tone, active, audioUrl }: any) {
   const [playing, setPlaying] = useState(false);
   const [t, setT] = useState(0);
+  const audioRef = React.useRef<HTMLAudioElement>(null);
+
   const total = useMemo(() => {
     const [m, s] = dur.split(':').map(Number);
     return m * 60 + s;
   }, [dur]);
 
   useEffect(() => {
-    if (!playing) return;
-    const id = setInterval(() => {
-      setT(prev => {
-        if (prev >= total) { setPlaying(false); return 0; }
-        return prev + 1;
-      });
-    }, 1000);
-    return () => clearInterval(id);
-  }, [playing, total]);
+    if (!audioRef.current) return;
+    if (playing) {
+      audioRef.current.play().catch(e => console.log("Audio error:", e));
+    } else {
+      audioRef.current.pause();
+    }
+  }, [playing]);
+
+  useEffect(() => {
+    if (!active && playing) {
+      setPlaying(false);
+    }
+  }, [active, playing]);
 
   const pct = (t / total) * 100;
   const mm = String(Math.floor(t / 60)).padStart(1, '0');
-  const ss = String(t % 60).padStart(2, '0');
+  const ss = String(Math.floor(t % 60)).padStart(2, '0');
 
   // generate stable-ish bar heights
   const bars = useMemo(() => Array.from({length: 48}, (_, i) =>
@@ -67,6 +93,20 @@ function ReviewCard({ name, city, rating, text, dur, tone, active }: any) {
 
         {/* audio UI */}
         <div className="mt-6 flex items-center gap-4 bg-[color:var(--bg)] rounded-full pl-2 pr-5 py-2">
+          {audioUrl && (
+            <audio 
+              ref={audioRef} 
+              src={audioUrl} 
+              preload="none" 
+              onTimeUpdate={() => {
+                if (audioRef.current) setT(audioRef.current.currentTime);
+              }}
+              onEnded={() => {
+                setPlaying(false);
+                setT(0);
+              }}
+            />
+          )}
           <button
             onClick={(e) => { e.stopPropagation(); setPlaying(p => !p); }}
             className="w-10 h-10 rounded-full bg-[color:var(--ink)] text-white flex items-center justify-center"
