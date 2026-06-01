@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useMemo } from 'react';
+import Image from 'next/image';
 import { Reveal } from '../ui/Reveal';
 import { Placeholder } from '../ui/Placeholder';
 import { Icons as I } from '../ui/Icons';
@@ -9,30 +10,30 @@ const REVIEWS = [
   { 
     name: 'Amélie R.',  city: 'Paris',   rating: 5, 
     text: 'I bought the VioR Cica Cream on a whim. Six weeks later three friends have asked what I’ve done differently. It’s this — just this.', 
-    dur: '0:08', tone: 'blush',
+    dur: '0:08', tone: 'blush', image: '/vior_portrait_amelie.png',
     audioUrl: '/I bought the VioR Cica Cream on a whim. Six weeks later three friends have asked what I’ve done differently. It’s this — just this..mp3'
   },
   { 
     name: 'Yui T.',     city: 'Kyoto',   rating: 5, 
     text: 'The VioR Rich Moisture Cream feels like cashmere on the face. My skin barrier hasn’t felt this calm in years.', 
-    dur: '0:07', tone: 'lav',
+    dur: '0:07', tone: 'lav', image: '/vior_portrait_yui.png',
     audioUrl: '/The VioR Rich Moisture Cream feels like cashmere on the face. My skin barrier hasn’t felt this calm in years.mp3'
   },
   { 
     name: 'Noor K.',    city: 'Dubai',   rating: 5, 
     text: 'Beautiful packaging, but more importantly — it actually works. Texture has refined, redness gone.', 
-    dur: '0:06', tone: 'cream',
+    dur: '0:06', tone: 'cream', image: '/vior_portrait_noor.png',
     audioUrl: '/Beautiful packaging, but more importantly — it actually works. Texture has refined, redness gone..mp3'
   },
   { 
     name: 'Sofía M.',   city: 'Madrid',  rating: 5, 
     text: 'I love that everything is refillable. Same routine, a fraction of the waste.', 
-    dur: '0:05', tone: 'sage',
+    dur: '0:05', tone: 'sage', image: '/vior_portrait_sofia.png',
     audioUrl: '/I love that everything is refillable. Same routine, a fraction of the waste.mp3'
   },
 ];
 
-function ReviewCard({ name, city, rating, text, dur, tone, active, audioUrl }: any) {
+function ReviewCard({ name, city, rating, text, dur, tone, active, audioUrl, image }: any) {
   const [playing, setPlaying] = useState(false);
   const [t, setT] = useState(0);
   const audioRef = React.useRef<HTMLAudioElement>(null);
@@ -70,7 +71,13 @@ function ReviewCard({ name, city, rating, text, dur, tone, active, audioUrl }: a
     <div className={`rounded-[28px] bg-white float-card p-6 md:p-8 grid grid-cols-12 gap-5 ${active ? '' : 'cursor-pointer'}`}>
       {/* avatar */}
       <div className="col-span-12 sm:col-span-3">
-        <Placeholder tone={tone} label="Portrait" sub={name} className="rounded-2xl aspect-square w-full"/>
+        <div className="rounded-2xl aspect-square w-full relative overflow-hidden bg-[color:var(--bg-soft)]">
+          {image ? (
+            <Image src={image} alt={`Portrait of ${name}`} fill className="object-cover" sizes="(max-width: 640px) 100vw, 25vw" />
+          ) : (
+            <Placeholder tone={tone} label="Portrait" sub={name} className="w-full h-full"/>
+          )}
+        </div>
       </div>
 
       {/* content */}
