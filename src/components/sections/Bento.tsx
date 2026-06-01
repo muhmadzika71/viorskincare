@@ -50,7 +50,7 @@ export function Bento() {
         </Reveal>
 
         {/* Lifestyle image — offset down */}
-        <Reveal className="col-span-12 sm:col-span-6 lg:col-span-3 lg:row-span-2 lg:translate-y-8" delay={2}>
+        <Reveal className="col-span-12 sm:col-span-6 lg:col-span-3 lg:row-span-2" delay={2}>
           <div className="float-card rounded-3xl w-full h-full min-h-[280px] lg:min-h-[460px] relative overflow-hidden bg-white">
             <Image src="/vior_about_products_v2.png" alt="Lifestyle VioR products" fill className="object-cover object-center" sizes="(max-width: 1024px) 50vw, 25vw" />
           </div>
@@ -76,7 +76,7 @@ export function Bento() {
         </Reveal>
 
         {/* Card 3 — High Quality */}
-        <Reveal className="col-span-12 sm:col-span-6 lg:col-span-3 lg:-translate-y-4" delay={1}>
+        <Reveal className="col-span-12 sm:col-span-6 lg:col-span-3" delay={1}>
           <BentoCard {...cards[2]} />
         </Reveal>
 
