@@ -14,9 +14,8 @@ export function Nav() {
             <Link className="hover:text-[color:var(--ink)]" href="/ingredients">Ingredients</Link>
           </nav>
           <div className="flex md:justify-center">
-            <Link href="/" className="font-display text-2xl tracking-tight flex items-center gap-2">
-              <span className="inline-block w-3 h-3 rotate-45" style={{ background: 'var(--coral)' }}/>
-              Vior Skincare
+            <Link href="/" className="font-display text-3xl md:text-4xl tracking-tight flex items-center">
+              VioR
             </Link>
           </div>
           <div className="flex items-center gap-1 justify-end">
