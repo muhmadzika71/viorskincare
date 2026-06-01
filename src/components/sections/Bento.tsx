@@ -61,23 +61,10 @@ export function Bento() {
           <BentoCard {...cards[1]} />
         </Reveal>
 
-        {/* Big quote card */}
+        {/* Product Lifestyle Image 2 */}
         <Reveal className="col-span-12 sm:col-span-6 lg:col-span-3 lg:row-span-2" delay={4}>
-          <div className="float-card rounded-3xl p-6 bg-[color:var(--ink)] text-[color:var(--bg)] h-full min-h-[280px] lg:min-h-[460px] flex flex-col justify-between relative overflow-hidden group">
-            <Image src="/vior_bento_lifestyle.png" alt="VioR Micellar Water" fill className="object-cover opacity-50 mix-blend-screen transition-transform duration-700 group-hover:scale-105" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--ink)] via-[color:var(--ink)]/60 to-transparent opacity-80" />
-            <div className="relative z-10">
-              <I.sparkle className="w-5 h-5 opacity-70"/>
-            </div>
-            <div className="relative z-10">
-              <div className="font-display text-2xl md:text-3xl leading-snug mb-6">
-                “Skin like I’ve had a week of sleep — in a single bottle.”
-              </div>
-              <div>
-                <div className="text-[13px]">Mira O.</div>
-                <div className="font-mono text-[10px] tracking-[0.18em] uppercase opacity-60 mt-1">Verified Buyer · London</div>
-              </div>
-            </div>
+          <div className="float-card rounded-3xl w-full h-full min-h-[280px] lg:min-h-[460px] relative overflow-hidden bg-white group">
+            <Image src="/vior_bento_lifestyle.png" alt="VioR Micellar Water" fill className="object-cover object-center transition-transform duration-700 group-hover:scale-105" sizes="(max-width: 1024px) 50vw, 25vw" />
           </div>
         </Reveal>
 
