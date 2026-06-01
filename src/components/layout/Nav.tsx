@@ -14,8 +14,8 @@ export function Nav() {
             <Link className="hover:text-[color:var(--ink)]" href="/ingredients">Ingredients</Link>
           </nav>
           <div className="flex md:justify-center">
-            <Link href="/" className="font-display text-3xl md:text-4xl tracking-tight flex items-center">
-              VioR
+            <Link href="/" className="font-display text-3xl md:text-4xl tracking-tight flex items-center uppercase">
+              VIOR
             </Link>
           </div>
           <div className="flex items-center gap-1 justify-end">
