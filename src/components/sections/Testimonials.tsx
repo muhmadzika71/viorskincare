@@ -11,25 +11,25 @@ const REVIEWS = [
     name: 'Amélie R.',  city: 'Paris',   rating: 5, 
     text: 'I bought the VioR Cica Cream on a whim. Six weeks later three friends have asked what I’ve done differently. It’s this — just this.', 
     dur: '0:08', tone: 'blush', image: '/vior_portrait_amelie.png',
-    audioUrl: '/I bought the VioR Cica Cream on a whim. Six weeks later three friends have asked what I’ve done differently. It’s this — just this..mp3'
+    audioUrl: '/audio_amelie.mp3'
   },
   { 
     name: 'Yui T.',     city: 'Kyoto',   rating: 5, 
     text: 'The VioR Rich Moisture Cream feels like cashmere on the face. My skin barrier hasn’t felt this calm in years.', 
     dur: '0:07', tone: 'lav', image: '/vior_portrait_yui.png',
-    audioUrl: '/The VioR Rich Moisture Cream feels like cashmere on the face. My skin barrier hasn’t felt this calm in years.mp3'
+    audioUrl: '/audio_yui.mp3'
   },
   { 
     name: 'Noor K.',    city: 'Dubai',   rating: 5, 
     text: 'Beautiful packaging, but more importantly — it actually works. Texture has refined, redness gone.', 
     dur: '0:06', tone: 'cream', image: '/vior_portrait_noor.png',
-    audioUrl: '/Beautiful packaging, but more importantly — it actually works. Texture has refined, redness gone..mp3'
+    audioUrl: '/audio_noor.mp3'
   },
   { 
     name: 'Sofía M.',   city: 'Madrid',  rating: 5, 
     text: 'I love that everything is refillable. Same routine, a fraction of the waste.', 
     dur: '0:05', tone: 'sage', image: '/vior_portrait_sofia.png',
-    audioUrl: '/I love that everything is refillable. Same routine, a fraction of the waste.mp3'
+    audioUrl: '/audio_sofia.mp3'
   },
 ];
 
