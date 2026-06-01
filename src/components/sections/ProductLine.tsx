@@ -9,12 +9,44 @@ import { Icons as I } from '../ui/Icons';
 
 const PRODUCTS = [
   { 
+    name: 'VioR Cica Cream', 
+    note: 'PRO B5 Intensive · All Skin Types', 
+    size: '60 ml', price: 42, 
+    bg: 'var(--plum-soft)', 
+    imageClass: '',
+    tag: 'Repair', image: '/vior_cica_cream.png' 
+  },
+  { 
     name: 'Hyaluronic Micellar H20 Ultra', 
     note: 'Antiox-Hydrate™ · All Skin Types', 
     size: '200 ml', price: 36, 
+    bg: 'var(--green-soft)', 
+    imageClass: '',
+    tag: 'Ultra', image: '/vior_micellar_water.png' 
+  },
+  { 
+    name: 'VioR Rich Moisture Cream', 
+    note: 'Deep Hydration · Dry Skin', 
+    size: '50 ml', price: 48, 
     bg: '#ffffff', 
     imageClass: '',
-    tag: 'Ultra', image: '/products/micellar-water.png' 
+    tag: 'Hydrate', image: '/vior_moisturizer.png' 
+  },
+  { 
+    name: 'VioR Daily Sunscreen', 
+    note: 'SPF 50 · Broad Spectrum', 
+    size: '50 ml', price: 38, 
+    bg: 'var(--bg-soft)', 
+    imageClass: '',
+    tag: 'Protect', image: '/vior_sunscreen.png' 
+  },
+  { 
+    name: 'VioR Hydrating Toner', 
+    note: 'Rosewater & Aloe · Sensitive Skin', 
+    size: '150 ml', price: 32, 
+    bg: 'var(--lavender)', 
+    imageClass: '',
+    tag: 'Tone', image: '/vior_toner.png' 
   },
 ];
 
@@ -49,7 +81,7 @@ function ProductCard({ name, note, size, price, bg, imageClass, tag, image }: an
 
         {/* hover ATC */}
         <div className="atc absolute inset-x-3 bottom-3 z-10">
-          <Link href={`/order?product=${encodeURIComponent(name)}`} className="w-full btn-pill bg-[color:var(--ink)] text-white rounded-full py-3 text-sm inline-flex items-center justify-center gap-2">
+          <Link href={`/contact?product=${encodeURIComponent(name)}`} className="w-full btn-pill bg-[color:var(--ink)] text-white rounded-full py-3 text-sm inline-flex items-center justify-center gap-2">
             <I.tag className="w-4 h-4"/> Order Inquiry
           </Link>
         </div>

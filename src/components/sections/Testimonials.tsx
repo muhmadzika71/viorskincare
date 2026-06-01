@@ -6,8 +6,8 @@ import { Placeholder } from '../ui/Placeholder';
 import { Icons as I } from '../ui/Icons';
 
 const REVIEWS = [
-  { name: 'Amélie R.',  city: 'Paris',   rating: 5, text: 'I bought the Aura Serum on a whim. Six weeks later three friends have asked what I’ve done differently. It’s this — just this.', dur: '0:42', tone: 'blush' },
-  { name: 'Yui T.',     city: 'Kyoto',   rating: 5, text: 'The Velvet Cloud cream feels like cashmere on the face. My skin barrier hasn’t felt this calm in years.', dur: '1:08', tone: 'lav' },
+  { name: 'Amélie R.',  city: 'Paris',   rating: 5, text: 'I bought the VioR Cica Cream on a whim. Six weeks later three friends have asked what I’ve done differently. It’s this — just this.', dur: '0:42', tone: 'blush' },
+  { name: 'Yui T.',     city: 'Kyoto',   rating: 5, text: 'The VioR Rich Moisture Cream feels like cashmere on the face. My skin barrier hasn’t felt this calm in years.', dur: '1:08', tone: 'lav' },
   { name: 'Noor K.',    city: 'Dubai',   rating: 5, text: 'Beautiful packaging, but more importantly — it actually works. Texture has refined, redness gone.', dur: '0:55', tone: 'cream' },
   { name: 'Sofía M.',   city: 'Madrid',  rating: 5, text: 'I love that everything is refillable. Same routine, a fraction of the waste.', dur: '0:33', tone: 'sage' },
 ];

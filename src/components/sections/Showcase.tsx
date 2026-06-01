@@ -30,7 +30,7 @@ export function Showcase() {
               <span className="dot" style={{ background: 'var(--coral)', opacity: 1 }}/> Featured
             </span>
             <h3 className="font-display text-4xl md:text-5xl leading-tight mt-4">
-              Cleaning <span className="italic" style={{ color: 'var(--coral)' }}>Water</span>
+              Micellar <span className="italic" style={{ color: 'var(--coral)' }}>H2O</span>
             </h3>
             <p className="text-[14px] text-white/70 leading-relaxed mt-4">
               A gentle micellar water blending Aloe Vera, Green Tea extract 
@@ -70,7 +70,7 @@ export function Showcase() {
 
               {/* Real product image */}
               <div className="relative">
-                <img src="/products/cleaning-water-2.webp" alt="Cleaning Water" className="w-48 md:w-60 object-contain drop-shadow-2xl z-10 relative" />
+                <img src="/vior_micellar_water.png" alt="Micellar Water" className="w-48 md:w-60 object-contain drop-shadow-2xl z-10 relative" />
                 {/* shadow */}
                 <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-44 h-3 rounded-full bg-black/40 blur-md"/>
               </div>
@@ -127,10 +127,10 @@ export function Showcase() {
             </div>
 
             <div className="mt-8 flex md:flex-col md:items-end gap-3">
-              <Link href="/order?product=Cleaning+Water" className="btn-pill text-white rounded-full px-6 py-3 text-sm inline-flex items-center gap-2" style={{ background: 'var(--coral)' }}>
+              <Link href="/contact?product=HYALURONIC+MICELLAR+H2O+Ultra" className="btn-pill text-white rounded-full px-6 py-3 text-sm inline-flex items-center gap-2" style={{ background: 'var(--coral)' }}>
                 <I.tag className="w-4 h-4"/> Order Inquiry
               </Link>
-              <Link href="/order" className="btn-pill rounded-full px-6 py-3 text-sm inline-flex items-center gap-2 text-white border" style={{ borderColor: 'rgba(255,255,255,0.3)' }}>
+              <Link href="/contact" className="btn-pill rounded-full px-6 py-3 text-sm inline-flex items-center gap-2 text-white border" style={{ borderColor: 'rgba(255,255,255,0.3)' }}>
                 View Full Form <I.arrow className="w-4 h-4"/>
               </Link>
             </div>

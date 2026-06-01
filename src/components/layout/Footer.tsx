@@ -1,8 +1,14 @@
 "use client";
-import React, { useState } from "react";
-import Link from "next/link";
+import React, { useState } from 'react';
+import Link from 'next/link';
 
 export function Footer() {
+  const cols = [
+    { title: 'Shop',     items: [{l:'All Products',h:'/shop'}, {l:'Skincare Quiz',h:'/quiz'}] },
+    { title: 'Company',  items: [{l:'Our Story',h:'/story'}, {l:'Ingredients',h:'/ingredients'}, {l:'Sustainability',h:'/sustainability'}, {l:'Careers',h:'/careers'}] },
+    { title: 'Support',  items: [{l:'Contact',h:'/contact'}, {l:'Shipping',h:'/shipping'}, {l:'Returns',h:'/returns'}, {l:'FAQ',h:'/faq'}] },
+  ];
+
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "error" | "success">("idle");
   const [message, setMessage] = useState("");
@@ -26,79 +32,66 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-[#f0e3db] text-ink py-16 px-8 mt-24">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
-        <div className="w-full md:w-1/3">
-          <Link href="/">
-            <span className="text-4xl font-display text-coral font-bold tracking-wider uppercase mb-6 block">VIOR</span>
-          </Link>
-          <p className="text-sm text-ink-soft max-w-xs">
-            Crafted To Glow. Clean, effective, and sustainable skincare.
-          </p>
-        </div>
-        
-        <div className="w-full md:w-2/3 grid grid-cols-2 sm:grid-cols-4 gap-8">
-          <div>
-            <h4 className="font-bold mb-4 text-sm tracking-wider uppercase">Shop</h4>
-            <ul className="space-y-2 text-sm text-ink-soft">
-              <li><Link href="/shop" className="hover:text-ink">All Products</Link></li>
-              <li><Link href="/shop#bestsellers" className="hover:text-ink">Best Sellers</Link></li>
-              <li><Link href="/shop#new" className="hover:text-ink">New Serums</Link></li>
-              <li><Link href="/quiz" className="hover:text-ink">Skincare Quiz</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-bold mb-4 text-sm tracking-wider uppercase">Company</h4>
-            <ul className="space-y-2 text-sm text-ink-soft">
-              <li><Link href="/story" className="hover:text-ink">Our Story</Link></li>
-              <li><Link href="/ingredients" className="hover:text-ink">Ingredients</Link></li>
-              <li><Link href="/sustainability" className="hover:text-ink">Sustainability</Link></li>
-              <li><Link href="/careers" className="hover:text-ink">Careers</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-bold mb-4 text-sm tracking-wider uppercase">Help</h4>
-            <ul className="space-y-2 text-sm text-ink-soft">
-              <li><Link href="/faq" className="hover:text-ink">FAQ</Link></li>
-              <li><Link href="/shipping" className="hover:text-ink">Shipping</Link></li>
-              <li><Link href="/returns" className="hover:text-ink">Returns</Link></li>
-              <li><Link href="/contact" className="hover:text-ink">Contact Us</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-bold mb-4 text-sm tracking-wider uppercase">Newsletter</h4>
-            <p className="text-sm text-ink-soft mb-4">Get 10% off your first order and exclusive access to new launches.</p>
-            <form onSubmit={handleSubscribe} className="relative">
-              <div className="flex items-end">
-                <input 
-                  type="email" 
-                  placeholder="Email Address" 
-                  value={email}
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                    if (status === "error") setStatus("idle");
-                  }}
-                  className="w-full bg-transparent border-b border-ink py-2 text-sm focus:outline-none placeholder-ink/50" 
-                />
-                <button type="submit" className="border-b border-ink font-bold text-sm hover:text-coral transition-colors ml-4 py-2 whitespace-nowrap">
-                  Sign Up
-                </button>
-              </div>
+    <footer className="mt-32 md:mt-44 pt-16 border-t border-[color:var(--border)] relative overflow-hidden text-[color:var(--ink)]">
+      <div className="px-6 md:px-10">
+        <div className="grid grid-cols-12 gap-8 pb-12">
+          {/* Logo / Newsletter */}
+          <div className="col-span-12 md:col-span-5 lg:col-span-4 pr-4">
+            <Link href="/" className="font-display text-3xl tracking-tight flex items-center gap-2 text-[color:var(--ink)]">
+              <span className="inline-block w-3 h-3 rotate-45" style={{ background: 'var(--coral)' }}/>
+              Vior Skincare
+            </Link>
+            <p className="mt-4 text-[14px] text-[color:var(--ink-soft)] leading-relaxed max-w-sm">
+              Botanically-rich skincare for the quiet rituals of your day. Formulated to leave skin luminous and unmistakably yours.
+            </p>
+            <div className="mt-8 relative">
+              <div className="font-mono text-[10px] tracking-[0.16em] uppercase text-[color:var(--ink-soft)] mb-3">Join our letters</div>
+              <form onSubmit={handleSubscribe}>
+                <div className="flex bg-[color:var(--bg-soft)] rounded-full overflow-hidden max-w-sm focus-within:ring-2 focus-within:ring-[color:var(--ink)] transition-shadow">
+                  <input 
+                    type="email" 
+                    placeholder="Email address" 
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      if (status === "error") setStatus("idle");
+                    }}
+                    className="bg-transparent flex-1 px-5 py-3 text-sm outline-none w-full text-[color:var(--ink)]" 
+                  />
+                  <button type="submit" className="px-5 text-sm font-medium hover:bg-[color:var(--ink)] hover:text-white transition-colors text-[color:var(--ink)]">Submit</button>
+                </div>
+              </form>
               {status !== "idle" && (
-                <div className={`absolute top-full left-0 mt-2 text-xs ${status === "success" ? "text-green-600 font-medium" : "text-red-500"}`}>
+                <div className={`absolute top-full left-0 mt-2 text-xs ${status === "success" ? "text-[color:var(--green)] font-medium" : "text-red-500"}`}>
                   {message}
                 </div>
               )}
-            </form>
+            </div>
+          </div>
+          
+          <div className="col-span-12 md:col-span-1 lg:col-span-3 hidden lg:block"/>
+
+          {/* Links */}
+          <div className="col-span-12 md:col-span-6 lg:col-span-5 grid grid-cols-2 md:grid-cols-3 gap-8">
+            {cols.map(c => (
+              <div key={c.title}>
+                <h4 className="font-mono text-[10px] tracking-[0.16em] uppercase text-[color:var(--ink-soft)] mb-5">{c.title}</h4>
+                <ul className="space-y-3 text-[14px]">
+                  {c.items.map(i => (
+                    <li key={i.l}><Link href={i.h} className="hover:text-[color:var(--coral)] transition-colors text-[color:var(--ink-soft)]">{i.l}</Link></li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
-      </div>
-      
-      <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-ink/20 flex flex-col md:flex-row justify-between items-center text-xs text-ink-soft">
-        <p>© 2026 VIOR Skincare. All rights reserved.</p>
-        <div className="flex gap-4 mt-4 md:mt-0">
-          <Link href="/privacy" className="hover:text-ink">Privacy Policy</Link>
-          <Link href="/terms" className="hover:text-ink">Terms of Service</Link>
+
+        <div className="py-6 border-t border-[color:var(--border)] flex flex-col md:flex-row items-center justify-between gap-4 text-[13px] text-[color:var(--ink-soft)]">
+          <div>© {new Date().getFullYear()} Vior Skincare. All rights reserved.</div>
+          <div className="flex items-center gap-6">
+            <Link href="/privacy" className="hover:text-[color:var(--ink)]">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-[color:var(--ink)]">Terms of Service</Link>
+          </div>
         </div>
       </div>
     </footer>
