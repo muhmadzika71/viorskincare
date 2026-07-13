@@ -17,12 +17,13 @@ const PRODUCTS = [
     tag: 'Repair', image: '/vior_cica_cream.png' 
   },
   { 
-    name: 'Hyaluronic Micellar H20 Ultra', 
+    name: 'Riviv Micellar H2O Ultra', 
     note: 'Antiox-Hydrate™ · All Skin Types', 
+    description: 'Experience a new standard of hydration with Riviv Micellar H2O Ultra.\nEngineered with Hyaluronic Acid, this advanced formula doesn\'t just cleanse it floods the skin with multi-layer moisture to protect against post-cleansing dryness.\nPowered by our exclusive Antiox-Hydrate™ Molecule and Thermal Spring Water, it effectively lifts away makeup and pollutants while Moringa Extract and Zinc PCA refine pores and balance oil.\nInfused with a cooling botanical blend of Aloe Vera, Chamomile, and Cucumber, it instantly quenches thirsty skin and soothes, leaving your complexion plump, revitalized, and velvety-soft.',
     size: '200 ml', price: 36, 
     bg: 'var(--green-soft)', 
     imageClass: '',
-    tag: 'Ultra', image: '/vior_micellar_water.png' 
+    tag: 'Ultra', image: '/vior_micellar_water_new.webp' 
   },
   { 
     name: 'VioR Rich Moisture Cream', 
