@@ -48,14 +48,6 @@ const PRODUCTS = [
     bg: 'var(--lavender)', 
     imageClass: '',
     tag: 'Tone', image: '/vior_toner.png' 
-  },
-  {
-    name: 'VioR Renewing Serum',
-    note: 'Advanced Repair',
-    size: '30 ml', price: 55,
-    bg: 'var(--peach-soft)',
-    imageClass: '',
-    tag: 'New', image: '/vior_new_product.jpg'
   }
 ];
 
