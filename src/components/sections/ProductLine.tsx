@@ -31,15 +31,16 @@ const PRODUCTS = [
     size: '50 ml', price: 48, 
     bg: '#ffffff', 
     imageClass: '',
-    tag: 'Hydrate', image: '/vior_rich_moisture_cream_new.jpg' 
+    tag: 'Hydrate', image: '/vior_rich_moisture_cream_new.webp' 
   },
   { 
     name: 'VioR Daily Sunscreen', 
-    note: 'SPF 50 · Broad Spectrum', 
+    note: 'SPF 60+ · Broad Spectrum', 
+    description: 'Revive Your Skin With SPF 60+ SUNSCREEN.\nUVA/UVB Invisible Protection.\nInvisible Shield Technology: A completely light finish leaves zero weight on any skin tone.\nOxidative Stress Protection: Neutralizes environmental pollutants.\nHigh Water-Resistance for the gym, the beach, and everywhere in between.\nHelps reduce dark spots, and stay radiant.\nVelvet Matte Finish: Oil-free and mattifying for a clean, shine-free look that lasts all day.',
     size: '50 ml', price: 38, 
     bg: 'var(--bg-soft)', 
     imageClass: '',
-    tag: 'Protect', image: '/vior_sunscreen.png' 
+    tag: 'Protect', image: '/vior_sunscreen_new.webp' 
   },
   { 
     name: 'VioR Hydrating Toner', 
