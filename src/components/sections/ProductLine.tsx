@@ -27,10 +27,11 @@ const PRODUCTS = [
   { 
     name: 'VioR Rich Moisture Cream', 
     note: 'Deep Hydration · Dry Skin', 
+    description: 'A high-performance, lipid-rich cream engineered with the Antiox-Hydrate™ Molecule\nOur *Barrier Cream* is a rich, velvety moisturizer that acts like a "security guard" for your skin.\nWhile life, weather, and pollution try to strip your moisture away, this cream locks it back in.\nit’s a daily care that repairs your skin barrier from the inside out,\nleaving your Skin feeling soft, bouncy, and perfectly hydrated—never greasy.',
     size: '50 ml', price: 48, 
     bg: '#ffffff', 
     imageClass: '',
-    tag: 'Hydrate', image: '/vior_moisturizer.png' 
+    tag: 'Hydrate', image: '/vior_rich_moisture_cream_new.jpg' 
   },
   { 
     name: 'VioR Daily Sunscreen', 
@@ -48,9 +49,17 @@ const PRODUCTS = [
     imageClass: '',
     tag: 'Tone', image: '/vior_toner.png' 
   },
+  {
+    name: 'VioR Renewing Serum',
+    note: 'Advanced Repair',
+    size: '30 ml', price: 55,
+    bg: 'var(--peach-soft)',
+    imageClass: '',
+    tag: 'New', image: '/vior_new_product.jpg'
+  }
 ];
 
-function ProductCard({ name, note, size, price, bg, imageClass, tag, image }: any) {
+function ProductCard({ name, note, description, size, price, bg, imageClass, tag, image }: any) {
   return (
     <article className="relative w-[270px] md:w-[300px] rounded-[28px] overflow-hidden bg-white float-card group">
       <div 
@@ -95,6 +104,11 @@ function ProductCard({ name, note, size, price, bg, imageClass, tag, image }: an
           </div>
           <div className="font-display text-lg">${price}</div>
         </div>
+        {description && (
+          <div className="mt-3 text-[11px] leading-relaxed text-[color:var(--ink-soft)] whitespace-pre-line">
+            {description}
+          </div>
+        )}
       </div>
     </article>
   );
