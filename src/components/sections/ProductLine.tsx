@@ -11,10 +11,11 @@ const PRODUCTS = [
   { 
     name: 'VioR Cica Cream', 
     note: 'PRO B5 Intensive · All Skin Types', 
+    description: 'An intensive Vitamin Pro B5 Cream powered by 1% Dimethicone and our Antiox-Hydrate™ Molecule to create a breathable, anti-pollution moisture shield. This advanced fusion of Collagen and (Centella Asiatica) rebuilds skin architecture from within, while Niacinamide and Hyaluronic Acid provide multi-layer hydration and a luminous glow. Infused with Green Tea, Turmeric, and Panthenol to instantly extinguish redness, it leaves skin firm, revitalized, and velvety-matte—never greasy     •	  Barrier Builder: Strengthens skin to fight sensitivity, sunburn.',
     size: '60 ml', price: 42, 
     bg: 'var(--plum-soft)', 
     imageClass: '',
-    tag: 'Repair', image: '/vior_cica_cream.png' 
+    tag: 'Repair', image: '/vior_cica_cream_new.webp' 
   },
   { 
     name: 'Riviv Micellar H2O Ultra', 
