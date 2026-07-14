@@ -75,7 +75,7 @@ const PRODUCTS = [
 
 function ProductCard({ name, note, description, size, price, bg, imageClass, tag, image }: any) {
   return (
-    <article className="relative w-full rounded-[28px] overflow-hidden bg-white float-card group flex flex-col h-full">
+    <article className="relative w-[270px] md:w-[300px] rounded-[28px] overflow-hidden bg-white float-card group flex flex-col h-full">
       <div 
         className="aspect-[4/5] relative overflow-hidden shrink-0"
         style={{ background: bg }}
@@ -145,8 +145,8 @@ export function ProductLine() {
         </div>
       </div>
 
-      <Reveal delay={2} className="mt-10 px-6 md:px-10">
-        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-2">
+      <Reveal delay={2} className="mt-16 px-6 md:px-10">
+        <ul className="grid grid-cols-1 md:grid-cols-2 justify-items-center gap-y-12 gap-x-6 max-w-4xl mx-auto pb-2">
           {PRODUCTS.map((p) => (
             <li key={p.name} className="product-card">
               <ProductCard {...p} />
