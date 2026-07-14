@@ -61,14 +61,23 @@ const PRODUCTS = [
     bg: '#e8f5e9',
     imageClass: '',
     tag: 'Soothe', image: '/vior_aloe_vera.webp'
+  },
+  {
+    name: 'VIOR TONER',
+    note: 'Deep Hydration · Pore Perfecting',
+    description: 'Power up your skin with our exclusive Antiox-Hydrate™ technology. This multi-tasking toner bridges the gap between cleansing and deep hydration,\nDeep Hydration: Hyaluronic acid and vitamins A & E lock in moisture at the cellular level.\nPore Perfecting: A gentle, natural astringent that tightens pores and smooths texture.\nCleanse & Prep: Removes residual impurities, enable skin to absorb the full benefits of your daily serum.',
+    size: '150 ml', price: 34,
+    bg: '#fdf3f0',
+    imageClass: '',
+    tag: 'Prep', image: '/vior_toner_new.webp'
   }
 ];
 
 function ProductCard({ name, note, description, size, price, bg, imageClass, tag, image }: any) {
   return (
-    <article className="relative w-[270px] md:w-[300px] rounded-[28px] overflow-hidden bg-white float-card group">
+    <article className="relative w-full rounded-[28px] overflow-hidden bg-white float-card group flex flex-col h-full">
       <div 
-        className="aspect-[4/5] relative overflow-hidden"
+        className="aspect-[4/5] relative overflow-hidden shrink-0"
         style={{ background: bg }}
       >
         {/* Soft highlight overlay */}
@@ -101,7 +110,7 @@ function ProductCard({ name, note, description, size, price, bg, imageClass, tag
         </div>
       </div>
 
-      <div className="p-5">
+      <div className="p-5 flex-1 flex flex-col">
         <div className="flex items-start justify-between gap-3">
           <div>
             <h3 className="font-display text-[18px] leading-snug">{name}</h3>
@@ -127,39 +136,23 @@ export function ProductLine() {
     <section id="shop" className="mt-28 md:mt-40">
       <div className="px-6 md:px-10">
         <div className="grid grid-cols-12 gap-4 items-end">
-          <Reveal className="col-span-12 md:col-span-8">
-            <span className="chip"><span className="dot"/>The Range · 06</span>
+          <Reveal className="col-span-12">
+            <span className="chip"><span className="dot"/>The Range · 07</span>
             <h2 className="font-display text-[9vw] md:text-[5vw] leading-[0.96] mt-4">
               Various products. <span className="italic">One</span> standard.
             </h2>
           </Reveal>
-          <Reveal delay={1} className="col-span-12 md:col-span-4 md:text-right">
-            <div className="inline-flex items-center gap-2">
-              <button onClick={() => scrollBy(-380)} aria-label="Previous" className="btn-pill w-11 h-11 rounded-full border border-[color:var(--border)] bg-white hover:bg-[color:var(--bg-soft)] inline-flex items-center justify-center">
-                <I.arrow className="w-4 h-4 rotate-180"/>
-              </button>
-              <button onClick={() => scrollBy(380)} aria-label="Next" className="btn-pill w-11 h-11 rounded-full bg-[color:var(--ink)] text-white inline-flex items-center justify-center">
-                <I.arrow className="w-4 h-4"/>
-              </button>
-            </div>
-          </Reveal>
         </div>
       </div>
 
-      <Reveal delay={2} className="mt-10">
-        <div
-          ref={railRef}
-          className="no-scrollbar overflow-x-auto scroll-smooth pl-6 md:pl-10 pr-6 md:pr-10 pb-2"
-          style={{ scrollSnapType: 'x mandatory' }}
-        >
-          <ul className="flex gap-5 min-w-max">
-            {PRODUCTS.map((p) => (
-              <li key={p.name} className="product-card" style={{ scrollSnapAlign: 'start' }}>
-                <ProductCard {...p} />
-              </li>
-            ))}
-          </ul>
-        </div>
+      <Reveal delay={2} className="mt-10 px-6 md:px-10">
+        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-2">
+          {PRODUCTS.map((p) => (
+            <li key={p.name} className="product-card">
+              <ProductCard {...p} />
+            </li>
+          ))}
+        </ul>
       </Reveal>
     </section>
   );

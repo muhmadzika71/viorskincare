@@ -64,7 +64,7 @@ export function Bento() {
         {/* Product Lifestyle Image 2 */}
         <Reveal className="col-span-12 sm:col-span-6 lg:col-span-3 lg:row-span-2" delay={4}>
           <div className="float-card rounded-3xl w-full h-full min-h-[280px] lg:min-h-[460px] relative overflow-hidden bg-white group">
-            <Image src="/vior_bento_lifestyle.png" alt="VioR Micellar Water" fill className="object-cover object-center transition-transform duration-700 group-hover:scale-105" sizes="(max-width: 1024px) 50vw, 25vw" />
+            <Image src="/vior_bento_lifestyle_new.webp" alt="VioR Lifestyle" fill className="object-cover object-center transition-transform duration-700 group-hover:scale-105" sizes="(max-width: 1024px) 50vw, 25vw" />
           </div>
         </Reveal>
 
