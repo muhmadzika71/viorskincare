@@ -68,7 +68,7 @@ export function Showcase() {
 
               {/* Real product image */}
               <div className="relative">
-                <img src="/vior_micellar_water_new.webp" alt="Riviv Micellar Water" className="w-48 md:w-60 object-contain drop-shadow-2xl z-10 relative" />
+                <img src="/vior_showcase_micellar.webp" alt="Riviv Micellar Water" className="w-48 md:w-60 object-contain drop-shadow-2xl z-10 relative" />
                 {/* shadow */}
                 <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-44 h-3 rounded-full bg-black/40 blur-md"/>
               </div>
