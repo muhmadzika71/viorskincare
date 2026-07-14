@@ -45,13 +45,22 @@ const PRODUCTS = [
     tag: 'Protect', image: '/vior_sunscreen_new.webp' 
   },
   { 
-    name: 'VioR Age-Defying Serum', 
+    name: 'VIOR RETINOL', 
     note: '0.5% Retinol & Peptides', 
     description: 'A high-performance, age-defying serum designed to resurface the skin while maintaining its moisture barrier. This sophisticated blend utilizes Squalane as a delivery system for 0.5% Retinol to ensure skin comfort, while Peptides and Plant Stem Cells target fine lines. Added Ceramides and Hyaluronic Acid ensure the skin remains plump and hydrated.',
     size: '30 ml', price: 65, 
     bg: 'var(--lavender)', 
     imageClass: '',
     tag: 'Repair', image: '/vior_age_defying_serum.webp' 
+  },
+  {
+    name: 'VioR Aloe Vera',
+    note: 'Multipurpose Gel · All Skin Types',
+    description: 'A versatile, high-performance multipurpose gel powered by the Antiox-Hydrate™ Molecule.\nThis 96% natural aloe-based formula acts as a "skin-thirst quencher," delivering long-lasting hydration via Hydagen® Aquaporin technology.\nIt effectively repairs the skin barrier, soothes sun-exposed skin, and serves as a refreshing makeup remover or primer.',
+    size: '200 ml', price: 30,
+    bg: '#e8f5e9',
+    imageClass: '',
+    tag: 'Soothe', image: '/vior_aloe_vera.webp'
   }
 ];
 
