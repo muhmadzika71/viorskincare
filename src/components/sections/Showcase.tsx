@@ -30,12 +30,10 @@ export function Showcase() {
               <span className="dot" style={{ background: 'var(--coral)', opacity: 1 }}/> Featured
             </span>
             <h3 className="font-display text-4xl md:text-5xl leading-tight mt-4">
-              Micellar <span className="italic" style={{ color: 'var(--coral)' }}>H2O</span>
+              Riviv Micellar <span className="italic" style={{ color: 'var(--coral)' }}>H2O</span> Ultra
             </h3>
             <p className="text-[14px] text-white/70 leading-relaxed mt-4">
-              A gentle micellar water blending Aloe Vera, Green Tea extract 
-              and Panthenol to effortlessly lift impurities and calm skin — 
-              leaving it refreshed and hydrated.
+              Experience a new standard of hydration with Riviv Micellar H2O Ultra. Engineered with Hyaluronic Acid, this advanced formula doesn't just cleanse it floods the skin with multi-layer moisture to protect against post-cleansing dryness. Powered by our exclusive Antiox-Hydrate™ Molecule and Thermal Spring Water, it effectively lifts away makeup and pollutants while Moringa Extract and Zinc PCA refine pores and balance oil. Infused with a cooling botanical blend of Aloe Vera, Chamomile, and Cucumber, it instantly quenches thirsty skin and soothes, leaving your complexion plump, revitalized, and velvety-soft.
             </p>
 
             <ul className="mt-6 space-y-2.5 text-[13.5px] text-white/85">
@@ -70,7 +68,7 @@ export function Showcase() {
 
               {/* Real product image */}
               <div className="relative">
-                <img src="/vior_micellar_water.png" alt="Micellar Water" className="w-48 md:w-60 object-contain drop-shadow-2xl z-10 relative" />
+                <img src="/vior_micellar_water_new.webp" alt="Riviv Micellar Water" className="w-48 md:w-60 object-contain drop-shadow-2xl z-10 relative" />
                 {/* shadow */}
                 <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-44 h-3 rounded-full bg-black/40 blur-md"/>
               </div>
