@@ -75,9 +75,9 @@ const PRODUCTS = [
 
 function ProductCard({ name, note, description, size, price, bg, imageClass, tag, image }: any) {
   return (
-    <article className="relative w-[270px] md:w-[300px] rounded-[28px] overflow-hidden bg-white float-card group flex flex-col h-full">
+    <article className="relative w-[270px] md:w-[300px] rounded-[28px] overflow-hidden bg-white float-card group">
       <div 
-        className="aspect-[4/5] relative overflow-hidden shrink-0"
+        className="aspect-[4/5] relative overflow-hidden"
         style={{ background: bg }}
       >
         {/* Soft highlight overlay */}
@@ -110,7 +110,7 @@ function ProductCard({ name, note, description, size, price, bg, imageClass, tag
         </div>
       </div>
 
-      <div className="p-5 flex-1 flex flex-col">
+      <div className="p-5">
         <div className="flex items-start justify-between gap-3">
           <div>
             <h3 className="font-display text-[18px] leading-snug">{name}</h3>
@@ -129,30 +129,67 @@ function ProductCard({ name, note, description, size, price, bg, imageClass, tag
 }
 
 export function ProductLine() {
-  const railRef = useRef<HTMLDivElement>(null);
-  const scrollBy = (dx: number) => railRef.current && railRef.current.scrollBy({ left: dx, behavior: 'smooth' });
+  const railRef1 = useRef<HTMLDivElement>(null);
+  const railRef2 = useRef<HTMLDivElement>(null);
+  const scrollBy = (dx: number) => {
+    railRef1.current && railRef1.current.scrollBy({ left: dx, behavior: 'smooth' });
+    railRef2.current && railRef2.current.scrollBy({ left: dx, behavior: 'smooth' });
+  };
+
+  const mid = Math.ceil(PRODUCTS.length / 2);
+  const row1 = PRODUCTS.slice(0, mid);
+  const row2 = PRODUCTS.slice(mid);
 
   return (
     <section id="shop" className="mt-28 md:mt-40">
       <div className="px-6 md:px-10">
         <div className="grid grid-cols-12 gap-4 items-end">
-          <Reveal className="col-span-12">
+          <Reveal className="col-span-12 md:col-span-8">
             <span className="chip"><span className="dot"/>The Range · 07</span>
             <h2 className="font-display text-[9vw] md:text-[5vw] leading-[0.96] mt-4">
               Various products. <span className="italic">One</span> standard.
             </h2>
           </Reveal>
+          <Reveal delay={1} className="col-span-12 md:col-span-4 md:text-right">
+            <div className="inline-flex items-center gap-2">
+              <button onClick={() => scrollBy(-380)} aria-label="Previous" className="btn-pill w-11 h-11 rounded-full border border-[color:var(--border)] bg-white hover:bg-[color:var(--bg-soft)] inline-flex items-center justify-center">
+                <I.arrow className="w-4 h-4 rotate-180"/>
+              </button>
+              <button onClick={() => scrollBy(380)} aria-label="Next" className="btn-pill w-11 h-11 rounded-full bg-[color:var(--ink)] text-white inline-flex items-center justify-center">
+                <I.arrow className="w-4 h-4"/>
+              </button>
+            </div>
+          </Reveal>
         </div>
       </div>
 
-      <Reveal delay={2} className="mt-16 px-6 md:px-10">
-        <ul className="grid grid-cols-1 md:grid-cols-2 justify-items-center gap-y-12 gap-x-6 max-w-4xl mx-auto pb-2">
-          {PRODUCTS.map((p) => (
-            <li key={p.name} className="product-card">
-              <ProductCard {...p} />
-            </li>
-          ))}
-        </ul>
+      <Reveal delay={2} className="mt-10 space-y-6">
+        <div
+          ref={railRef1}
+          className="no-scrollbar overflow-x-auto scroll-smooth pl-6 md:pl-10 pr-6 md:pr-10 pb-2"
+          style={{ scrollSnapType: 'x mandatory' }}
+        >
+          <ul className="flex gap-5 min-w-max">
+            {row1.map((p) => (
+              <li key={p.name} className="product-card" style={{ scrollSnapAlign: 'start' }}>
+                <ProductCard {...p} />
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div
+          ref={railRef2}
+          className="no-scrollbar overflow-x-auto scroll-smooth pl-6 md:pl-10 pr-6 md:pr-10 pb-2"
+          style={{ scrollSnapType: 'x mandatory' }}
+        >
+          <ul className="flex gap-5 min-w-max">
+            {row2.map((p) => (
+              <li key={p.name} className="product-card" style={{ scrollSnapAlign: 'start' }}>
+                <ProductCard {...p} />
+              </li>
+            ))}
+          </ul>
+        </div>
       </Reveal>
     </section>
   );
